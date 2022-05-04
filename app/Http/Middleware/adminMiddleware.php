@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use app\Http\Middleware\adminMiddleware as Middleware;
+
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\User;

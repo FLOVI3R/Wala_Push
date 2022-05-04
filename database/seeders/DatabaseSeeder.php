@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use App\Models\categoria;
 
 class DatabaseSeeder extends Seeder
 {

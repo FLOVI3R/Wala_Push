@@ -5,6 +5,7 @@ use Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use app\Http\Controllers\AdminController;
 
 class LoginController extends Controller
 {
@@ -28,11 +29,12 @@ class LoginController extends Controller
      */
     public function redirectTo()
     {
-        if(Auth::User()->actived == '1' && Auth::User()->role == 'admin')
-        {
-            return 'admin';
-        }else if(Auth::User()->actived == '1' && Auth::User()->role == 'user') {
-            return '/home';
+        if(Auth::User()->actived == '1') {
+            if(Auth::User()->role == 'admin') {
+                return 'admin';
+            }else {
+                return 'user_menu';
+            }
         }else {
             return 'login';
         }

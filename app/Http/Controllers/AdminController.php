@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\categoria;
 
 class AdminController extends Controller
 {
@@ -12,12 +13,12 @@ class AdminController extends Controller
         return view('admin.admin')->with('users', $users);
     }
 
-    public function showUserEditBlade(Request $request, $id) {
+    public function showUserEditBlade($id) {
         $user = User::FindOrFail($id);
         return view('admin.user_edit')->with('user', $user);
     }
 
-    public function userActivate(Request $request, $id) {
+    public function userActivate($id) {
         $user = User::FindOrFail($id);
         if($user->email_verified_at == null) {
             return redirect()->action([AdminController::class, 'showAdminBlade'])->with('status', 'Es necesario que el usuario confirme su email para activar la cuenta');
@@ -28,7 +29,7 @@ class AdminController extends Controller
         }
     }
 
-    public function userDeactivate(Request $request, $id) {
+    public function userDeactivate($id) {
         $user = User::FindOrFail($id);
         $user->actived = '0';
         $user->update();

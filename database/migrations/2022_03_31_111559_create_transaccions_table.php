@@ -15,6 +15,9 @@ class CreateTransaccionsTable extends Migration
     {
         Schema::create('transaccions', function (Blueprint $table) {
             $table->id();
+            $table->Integer('id_anuncio');
+            $table->Integer('id_comprador');
+            $table->Integer('valoracion');
             $table->timestamps();
         });
     }

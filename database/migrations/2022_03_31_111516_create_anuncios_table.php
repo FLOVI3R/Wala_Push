@@ -21,7 +21,7 @@ class CreateAnunciosTable extends Migration
             $table->tinyInteger('nuevo');
             $table->string('descripcion');
             $table->Integer('id_vendedor');
-            $table->tinyInteger('vendido');
+            $table->tinyInteger('vendido')->default('0');
             $table->tinyInteger('deleted')->default('0');
             $table->timestamps();
         });
